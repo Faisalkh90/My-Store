@@ -1,6 +1,7 @@
+<app-header></app-header>
 <div class="product-container">
 
   <div class="product-index">
-    <app-product-item *ngFor="let item of productList" [productList] ='item' [productsQuantity] = 'productsQuantity'></app-product-item>
+    <app-product-item *ngFor="let product of productList " [productList] = "product" (addProduct) = "addProduct($event)"></app-product-item>
   </div>
 </div>
