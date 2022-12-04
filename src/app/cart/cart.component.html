@@ -1,1 +1,37 @@
-<p>cart works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="empty-cart-message" *ngIf="cartProducts.length <=0">
+  <h1>Sorry, your cart is empty!<br> Please select product </h1>
+</div>
+<div class="cart-container" *ngIf="cartProducts.length > 0">
+  <div class="cart-panel">
+    <div class="cart-item" *ngFor="let item of cartProducts">
+      <img class = "product-image" [src]="item.url">
+      <div class="cart-item-details">
+        <h3> {{item.name}}</h3>
+        <p>$ {{item.price}}</p>
+
+        Amount :
+        <input class="number-input" type="number" [(ngModel)] = "item.quantity" (ngModelChange) = "update()">
+        <button (click) = "remove(item)" > Remove product from cart </button>
+      </div>
+
+    </div>
+    <form>
+      <p>Total price: {{info.totalPrice}}</p>
+    </form>
+  </div>
+
+  <div class="cart-panel">
+    <form class="form-margin" #form="ngForm">
+      <label>Full Name</label>
+      <input type="text"  placeholder="Your full name" [minLength]="4" [maxlength]="12" required [(ngModel)]="info.fullName">
+      <label>Address</label>
+      <input type="text" placeholder="Your address" [minLength]="5" [maxlength]="20" required [(ngModel)]="info.address">
+      <label>Credit Card Number</label>
+      <input type="text" placeholder= "Credit card number (16)" [minLength]="4" required [(ngModel)]="info.creditCard">
+      <br>
+      <button [disabled]="form.invalid" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
