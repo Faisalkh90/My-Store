@@ -1,1 +1,22 @@
-<p>product-item works!</p>
+<form class = "product-container" (ngSubmit)="addedOnSubmit(product)">
+  <a routerLink = "product/{{product.id}}">
+     <img class="product-image" [src]="product.url">
+  </a>
+
+  <p>{{product.name}}</p>
+  <p> ${{product.price}}</p>
+  <select style="width: 100px;"  class="select-input" aria-label="select">
+    <option selected value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+  <br>
+  <button type="submit">Add to cart</button>
+</form>
