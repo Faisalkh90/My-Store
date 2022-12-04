@@ -1,1 +1,34 @@
-<p>product-item-detail works!</p>
+<app-nav-bar></app-nav-bar>
+
+<div class="detail-container" *ngIf="product == undefined; else elseBlock">
+  <a routerLink="/">
+    <h1 routerLink="/">
+      Sorry, the product is unavailable
+    </h1>
+  </a>
+</div>
+
+
+<ng-template #elseBlock>
+  <form class="detail-container" (ngSubmit)="addedOnSubmit(product)">
+    <img src="{{ product.url }}" />
+    <div #elseBlock class="detail-item">
+      <h1>{{ product.name }}</h1>
+      <p>${{ product.price }}</p>
+      <p>{{ product.description }}</p>
+      <div>
+        <select class="select-input" [(ngModel)]="quantity" name="{{ product.id }}">
+          <option *ngFor="let quantity of productsQuantity" [ngValue]="quantity">
+            {{ quantity }}
+          </option>
+        </select>
+        <br />
+        <button type="submit">Add to cart</button>
+        <br />
+        <br />
+
+        <a class="back-link" routerLink="/">&larr; Back to product list</a>
+      </div>
+    </div>
+  </form>
+</ng-template>

@@ -3,7 +3,7 @@ import { CartService } from '../services/cart.service';
 import { ProductService } from '../services/product.service';
 import { Products } from '../modules/products';
 import { ActivatedRoute } from '@angular/router';
-import { ProductCart } from '../modules/productCart';
+// import { ProductCart } from '../modules/productCart';
 
 @Component({
   selector: 'app-product-item-detail',
@@ -11,21 +11,16 @@ import { ProductCart } from '../modules/productCart';
   styleUrls: ['./product-item-detail.component.css'],
 })
 export class ProductItemDetailComponent implements OnInit {
-  productList: Products[] = [];
-  product: Products = {
-    id: 1,
-    name: '',
-    price: 1,
-    url: '',
-    description: '',
-    quantity: 1,
-  };
-  productsQuantity: number[] = [];
+  product!: Products;
+  productsQuantity: number[];
+  quantity: number = 1;
   constructor(
     private cartService: CartService,
     private productService: ProductService,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) {
+    this.productsQuantity = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  }
 
   //get all products and filtering them by id
   ngOnInit(): void {
@@ -35,24 +30,21 @@ export class ProductItemDetailComponent implements OnInit {
         this.product = data.find((product) => {
           return product.id == routeParams['id'];
         }) as Products;
+        if (this.product) this.product.quantity = 1;
       });
-      this.productsQuantity = this.productService.productsQuantity.slice(1);
     } catch (err) {
       throw new Error("Sorry, can't find the products");
     }
   }
 
   //added item to cart
-  addedOnSubmit(e: any): void {
-    let optionSelected =
-      e.target[0].options[e.target[0].options.selectedIndex].value;
-    let cart: ProductCart = {
-      ...this.product,
-      option: parseInt(optionSelected),
-    };
-    this.cartService.checkCart(cart);
-    // product.quantity = 1;
-    // this.cartService.addProduct(product);
-    window.alert(`${this.product.name} added successfully`);
+  addedOnSubmit(product: Products): void {
+    product.quantity = this.quantity;
+    this.cartService.addProduct(product);
+    window.alert(
+      ` ${this.product.quantity} for ${this.product.name} added successfully`
+    );
+    //reset the quantity to 1
+    this.quantity = 1;
   }
 }
