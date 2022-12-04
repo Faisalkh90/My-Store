@@ -1,34 +1,37 @@
 <app-nav-bar></app-nav-bar>
 
-<div class="detail-container" *ngIf="product == undefined; else elseBlock">
-  <a routerLink="/">
-    <h1 routerLink="/">
-      Sorry, the product is unavailable
-    </h1>
-  </a>
-</div>
-
-
-<ng-template #elseBlock>
+<div class="detail-container" *ngIf="product">
   <form class="detail-container" (ngSubmit)="addedOnSubmit(product)">
     <img src="{{ product.url }}" />
-    <div #elseBlock class="detail-item">
+    <div class="detail-item">
       <h1>{{ product.name }}</h1>
       <p>${{ product.price }}</p>
       <p>{{ product.description }}</p>
       <div>
-        <select class="select-input" [(ngModel)]="quantity" name="{{ product.id }}">
-          <option *ngFor="let quantity of productsQuantity" [ngValue]="quantity">
-            {{ quantity }}
-          </option>
+<!--        <select class="select-input" [(ngModel)]="quantity" name="{{ product.id }}">-->
+<!--          <option *ngFor="let quantity of productsQuantity" [ngValue]="quantity">-->
+<!--            {{ quantity }}-->
+<!--          </option>-->
+<!--        </select>-->
+
+        <select style="width: 100px;"  class="select-input" aria-label="select">
+          <option selected value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
         </select>
-        <br />
+        <br>
         <button type="submit">Add to cart</button>
-        <br />
-        <br />
+        <br>
+        <br>
 
         <a class="back-link" routerLink="/">&larr; Back to product list</a>
       </div>
     </div>
   </form>
-</ng-template>
+</div>
+
