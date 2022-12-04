@@ -1,7 +1,7 @@
-<app-header></app-header>
+<app-nav-bar></app-nav-bar>
 <div class="product-container">
 
   <div class="product-index">
-    <app-product-item *ngFor="let product of productList " [productList] = "product" (addProduct) = "addProduct($event)"></app-product-item>
+    <app-product-item *ngFor="let product of productList " [product] = "product" (addProduct) = "addProduct($event)"></app-product-item>
   </div>
 </div>
