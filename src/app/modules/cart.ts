@@ -3,14 +3,12 @@ import { ProductCart } from './productCart';
 export class Cart {
   id: number;
   fullName: string;
-  address: string;
-  products: ProductCart[];
+  price: number;
   creditCard: number;
   constructor() {
     this.id = 1;
     this.fullName = '';
-    this.address = '';
-    this.products = [];
+    this.price = 1;
     this.creditCard = 1;
   }
 }
