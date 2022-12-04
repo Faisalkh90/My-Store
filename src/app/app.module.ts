@@ -8,6 +8,9 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductItemDetailComponent } from './product-item-detail/product-item-detail.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,11 @@ import { ProductListComponent } from './product-list/product-list.component';
     ConfirmationComponent,
     ProductItemComponent,
     ProductItemDetailComponent,
-    ProductListComponent
+    ProductListComponent,
+    NavBarComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
