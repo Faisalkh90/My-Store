@@ -9,11 +9,16 @@ import { Products } from '../modules/products';
 // create services to handle stream of data (products) that non UI logic
 export class ProductService {
   //create products order quantity option
-  productsQuantity: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  product!: Products;
+  productList!: Products[];
   constructor(private http: HttpClient) {}
 
   //fetch products info from JSON file
   getAllProducts(): Observable<Products[]> {
     return this.http.get<Products[]>('../assets/data.json');
+  }
+  //store product into a list
+  setProducts(productList: Products[]): void {
+    this.productList = productList;
   }
 }
