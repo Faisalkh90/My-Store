@@ -23,7 +23,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductListComponent,
     NavBarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, NgbModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    NgbModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
