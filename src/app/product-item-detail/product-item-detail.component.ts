@@ -27,9 +27,9 @@ export class ProductItemDetailComponent implements OnInit {
     try {
       let routeParams = this.activatedRoute.snapshot.params;
       this.productService.getAllProducts().subscribe((data) => {
-        this.product = data.find((product) => {
+        this.product = data.filter((product) => {
           return product.id == routeParams['id'];
-        }) as Products;
+        })[0] as Products;
         if (this.product) this.product.quantity = 1;
       });
     } catch (err) {

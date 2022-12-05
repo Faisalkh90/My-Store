@@ -8,28 +8,28 @@
       <p>${{ product.price }}</p>
       <p>{{ product.description }}</p>
       <div>
-<!--        <select class="select-input" [(ngModel)]="quantity" name="{{ product.id }}">-->
-<!--          <option *ngFor="let quantity of productsQuantity" [ngValue]="quantity">-->
-<!--            {{ quantity }}-->
-<!--          </option>-->
-<!--        </select>-->
+        <select class="select-input form-select" [(ngModel)]="quantity" name="{{ product.id }}">
+          <option *ngFor="let quantity of productsQuantity" [selected]="quantity">
+            {{ quantity }}
+          </option>
 
-        <select style="width: 100px;"  class="select-input" aria-label="select">
-          <option selected value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
         </select>
+<!--        <select style="width: 100px;"  class="select-input" aria-label="select">-->
+<!--          <option selected value="1">1</option>-->
+<!--          <option value="2">2</option>-->
+<!--          <option value="3">3</option>-->
+<!--          <option value="4">4</option>-->
+<!--          <option value="5">5</option>-->
+<!--          <option value="6">6</option>-->
+<!--          <option value="7">7</option>-->
+<!--          <option value="8">8</option>-->
+<!--          <option value="9">9</option>-->
+<!--          <option value="10">10</option>-->
+<!--        </select>-->
         <br>
-        <button type="submit">Add to cart</button>
+        <button type="submit" class="btn btn-primary">Add to cart</button>
         <br>
         <br>
-
-        <a class="back-link" routerLink="/">Back to product list</a>
       </div>
     </div>
   </form>
