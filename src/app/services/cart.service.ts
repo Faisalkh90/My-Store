@@ -37,6 +37,11 @@ export class CartService {
     return (this.productList = []);
   }
 
+  // remove specific product
+  removeSpecificProduct(product: Products[]): void {
+    this.productList = product;
+  }
+
   // // update product
   // updateUserCart(product: ProductCart): void {
   //   // check
