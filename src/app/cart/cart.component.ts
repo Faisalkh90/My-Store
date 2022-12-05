@@ -42,6 +42,7 @@ export class CartComponent implements OnInit {
     this.info.totalPrice = 0;
     for (let p of this.cartProducts) {
       let quantity = p.quantity;
+
       console.log(quantity);
       this.info.totalPrice += p.price * quantity;
     }
@@ -49,11 +50,12 @@ export class CartComponent implements OnInit {
   }
 
   remove(item: Products): void {
-    if (confirm(`Are you sure do you want to remove ${item.name} >`)) {
-      if (item.quantity <= 0) {
-        this.cartProducts = this.cartProducts.filter(
-          (data) => data.id !== item.id
-        );
+    if (confirm(`Are you sure do you want to remove ${item.name} ?`)) {
+      if (item.quantity >= 0) {
+        this.cartProducts = this.cartProducts.filter((data) => {
+          return data.id !== item.id;
+        }) as Products[];
+        this.cartService.removeSpecificProduct(this.cartProducts);
         window.alert(`${item.name} has been removed`);
       }
     }
