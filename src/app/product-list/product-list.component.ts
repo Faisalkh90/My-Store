@@ -18,8 +18,8 @@ export class ProductListComponent implements OnInit {
   //call products and set all to 1
   ngOnInit(): void {
     this.productsService.getAllProducts().subscribe((data) => {
-      for (let product = 0; product < data.length; product++) {
-        const item = data[product];
+      for (let product of data) {
+        const item = product;
         item.quantity = 1;
       }
       this.productList = data;
