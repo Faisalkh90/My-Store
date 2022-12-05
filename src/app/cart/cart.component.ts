@@ -15,6 +15,7 @@ export class CartComponent implements OnInit {
     fullName: '',
     address: '',
     creditCard: 1,
+    cc: '',
     totalPrice: 1,
   };
   @Input() cartProducts: Products[];
@@ -74,6 +75,7 @@ export class CartComponent implements OnInit {
         id: 1,
         fullName: '',
         address: '',
+        cc: '',
         creditCard: 1,
         totalPrice: 1,
       };
