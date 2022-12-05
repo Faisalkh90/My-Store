@@ -20,7 +20,7 @@ Build single-page application (SPA) by using [Angular](http://angularjs.org) to 
 
 - <b>Order confirmation:</b> Displays the result when the user has completed the checkout procedure
 
-- <b>data.json: </b> The project retrieves product information from the supplied file to populate the shop.
+- <b>data.json: </b> The list of products is retrieved by using the HttpClient service to read the data.json file
 
 ## Setup
 Make sure you installed the `npm`
@@ -36,4 +36,3 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 - CSS
 - Bootstrap
 
-***
