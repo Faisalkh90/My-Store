@@ -1,22 +1,29 @@
 <form class = "product-container" (ngSubmit)="addedOnSubmit(product)">
   <a routerLink = "product/{{product.id}}">
-     <img class="product-image" [src]="product.url">
+     <img class="product-image rounded" [src]="product.url">
   </a>
 
-  <p>{{product.name}}</p>
+  <p class = "h4">{{product.name}}</p>
   <p> ${{product.price}}</p>
-  <select style="width: 100px;"  class="select-input" aria-label="select">
-    <option selected value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
+<!--  <select style="width: 100px;"  class="select-input" aria-label="select">-->
+<!--    <option selected value="1">1</option>-->
+<!--    <option value="2">2</option>-->
+<!--    <option value="3">3</option>-->
+<!--    <option value="4">4</option>-->
+<!--    <option value="5">5</option>-->
+<!--    <option value="6">6</option>-->
+<!--    <option value="7">7</option>-->
+<!--    <option value="8">8</option>-->
+<!--    <option value="9">9</option>-->
+<!--    <option value="10">10</option>-->
+<!--  </select>-->
+
+  <select class="select-input form-select" [(ngModel)]="quantity" name="{{ product.id }}">
+    <option *ngFor="let quantity of productsQuantity" [selected]="quantity">
+      {{ quantity }}
+    </option>
+
   </select>
   <br>
-  <button type="submit">Add to cart</button>
+  <button type="submit" class="btn btn-primary">Add to cart</button>
 </form>
